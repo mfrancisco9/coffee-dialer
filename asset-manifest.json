@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/coffee-dialer/static/css/main.9d5b29c0.chunk.css",
+    "main.js": "/coffee-dialer/static/js/main.6cd1072c.chunk.js",
+    "main.js.map": "/coffee-dialer/static/js/main.6cd1072c.chunk.js.map",
+    "runtime-main.js": "/coffee-dialer/static/js/runtime-main.83af40f1.js",
+    "runtime-main.js.map": "/coffee-dialer/static/js/runtime-main.83af40f1.js.map",
+    "static/js/2.fbd663f7.chunk.js": "/coffee-dialer/static/js/2.fbd663f7.chunk.js",
+    "static/js/2.fbd663f7.chunk.js.map": "/coffee-dialer/static/js/2.fbd663f7.chunk.js.map",
+    "static/js/3.2e853327.chunk.js": "/coffee-dialer/static/js/3.2e853327.chunk.js",
+    "static/js/3.2e853327.chunk.js.map": "/coffee-dialer/static/js/3.2e853327.chunk.js.map",
+    "index.html": "/coffee-dialer/index.html",
+    "static/css/main.9d5b29c0.chunk.css.map": "/coffee-dialer/static/css/main.9d5b29c0.chunk.css.map",
+    "static/js/2.fbd663f7.chunk.js.LICENSE.txt": "/coffee-dialer/static/js/2.fbd663f7.chunk.js.LICENSE.txt",
+    "static/media/logo.6ce24c58.svg": "/coffee-dialer/static/media/logo.6ce24c58.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.83af40f1.js",
+    "static/js/2.fbd663f7.chunk.js",
+    "static/css/main.9d5b29c0.chunk.css",
+    "static/js/main.6cd1072c.chunk.js"
+  ]
+}
