@@ -2,11 +2,16 @@ import React, { useState, useEffect, Component } from "react";
 import "./css/Recent.css";
 
 function Recent() {
-  const [brews, setBrews] = useState(JSON.parse(localStorage.getItem("brews")));
-
+  const brews = JSON.parse(localStorage.getItem("brews"));
+  const [collapse, toggleCollapse] = useState(true)
+  
   return (
-    <div id="results-box">
-      {brews.map((brew) => (
+    <div id="results-box" onClick={() => {
+        toggleCollapse(collapse ? false : true)
+        console.log("collapse: ", collapse)}}>
+      {brews.reverse().splice(0,
+          collapse ? 1 : brews.length
+      ).map((brew) => (
         <div className="brew-container">
           <div className="beans-info">
             <span>{brew.roaster}</span>

@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import "./css/Box.css";
+import "./css/Brew.css";
 
 function Brew() {
   // info for dropdowns
   const origins = [
+    "Other/blends",
     "Bolivia",
     "Brazil",
     "Burundi",
@@ -36,7 +37,7 @@ function Brew() {
     "Venezuela",
     "Vietnam",
     "Yemen",
-    "Zambia"
+    "Zambia",
   ];
   const methods = ["Kalita", "V60", "Aeropress", "Automatic", "French Press"];
   //  state for submission & local storage
@@ -54,25 +55,34 @@ function Brew() {
     descriptors: [],
   });
 
-useEffect(() => {
-if(localStorage.getItem("brews") === null){
-  localStorage.setItem("brews", '[]');
+  useEffect(() => {
+    if (localStorage.getItem("brews") === null) {
+      localStorage.setItem("brews", "[]");
+    }
+  });
 
-}
-})
+  const submit = () => {
+    var old = JSON.parse(localStorage.getItem("brews"));
 
-const submit = () => {
-
-  var old = JSON.parse(localStorage.getItem('brews'))
-  old.push(brewData)
-  localStorage.setItem('brews', JSON.stringify(old))
-
-}
-
+    if (brewData.roaster == "" || 
+        brewData.origin == "" ||
+        brewData.coffee == "" ||
+        brewData.method == "" ||
+        brewData.grinder == "" ||
+        brewData.grindsize == "" ||
+        brewData.coffeegrams == "" ||
+        brewData.watergrams == ""
+        ) {
+          alert("please submit all data")
+        } else {
+    old.push(brewData);
+    localStorage.setItem("brews", JSON.stringify(old)); }
+  };
 
   return (
-    <div id="main-box">
-      <div id="beans">
+    <form id="main-box">
+  
+      <div id="row1">
         <input
           name="roaster"
           id="roaster"
@@ -85,10 +95,15 @@ const submit = () => {
         <select
           name="origin"
           id="origin"
+          required
           onChange={(event) =>
             setBrewData({ ...brewData, origin: event.target.value })
           }
         >
+          {" "}
+          <option value="" disabled selected>
+            select an origin
+          </option>
           {origins.map((origin) => (
             <option>{origin}</option>
           ))}
@@ -97,52 +112,56 @@ const submit = () => {
           type="text"
           name="coffee"
           id="coffee"
-          placeholder="anaerobic pink bourbon"
+          placeholder="farm/variety/process/etc"
+          required
           onChange={(event) =>
             setBrewData({ ...brewData, coffee: event.target.value })
           }
         />
       </div>
 
-      <div id="brew">
-        <div id="brew1">
-          <div id="brew-method">
-            <span>brew method:</span>
+      <div id="row2">
+        <div id="gear">
+          <div>
             <select
               name="method"
               id="method"
+              required
               onChange={(event) =>
                 setBrewData({ ...brewData, method: event.target.value })
               }
-            >
+            ><option value="" disabled selected>select a brew device</option>
               {methods.map((method) => (
                 <option>{method}</option>
-              ))}{" "}
+              ))}
             </select>
           </div>
-
-          <span>grinder:</span>
-          <input
-            name="grinder"
-            id="grinder"
-            placeholder="baratza encore"
-            onChange={(event) =>
-              setBrewData({ ...brewData, grinder: event.target.value })
-            }
-          />
-
-          <input
-            type="number"
-            name="grindsize"
-            id="grind-size"
-            placeholder="5"
-            onChange={(event) =>
-              setBrewData({ ...brewData, grindsize: event.target.value })
-            }
-          />
+          <div>
+            <input
+              name="grinder"
+              id="grinder"
+              placeholder="grinder (ie 'baratza encore')"
+              required
+              onChange={(event) =>
+                setBrewData({ ...brewData, grinder: event.target.value })
+              }
+            />
+          </div>
+          <div>
+            <input
+              type="number"
+              name="grindsize"
+              id="grind-size"
+              required
+              placeholder="grind size"
+              onChange={(event) =>
+                setBrewData({ ...brewData, grindsize: event.target.value })
+              }
+            />
+          </div>
         </div>
 
-        <div id="brew2">
+        <div id="specs">
           <div className="time">
             <input
               type="number"
@@ -150,6 +169,7 @@ const submit = () => {
               id="minutes"
               min="0"
               max="60"
+              required
               onChange={(event) =>
                 setBrewData({ ...brewData, minutes: event.target.value })
               }
@@ -161,6 +181,7 @@ const submit = () => {
               id="seconds"
               min="0"
               max="60"
+              required
               onChange={(event) =>
                 setBrewData({ ...brewData, seconds: event.target.value })
               }
@@ -169,43 +190,38 @@ const submit = () => {
           </div>
 
           <div id="masses">
-            <span>coffee: </span>
             <input
               type="number"
               name="coffeegrams"
               id="coffeegrams"
               min="0"
               max="2000"
+              required
               onChange={(event) =>
                 setBrewData({ ...brewData, coffeegrams: event.target.value })
               }
             />
-            <span>grams, </span>
+            <span>grams coffee </span>
 
-            <span>water: </span>
             <input
               type="number"
               name="watergrams"
               id="watergrams"
               min="0"
               max="9999"
+              required
               onChange={(event) =>
                 setBrewData({ ...brewData, watergrams: event.target.value })
               }
             />
-            <span>grams</span>
-            <span>
-              {brewData.watergrams > 1 && brewData.coffeegrams > 1
-                ? " (1:" +
-                  (brewData.watergrams / brewData.coffeegrams).toFixed(1) +
-                  " ratio)"
-                : null}
-            </span>
+            <span>grams water</span>
           </div>
+          {brewData.watergrams > 0 && brewData.coffeegrams > 0 ? <div>1:{(brewData.watergrams / brewData.coffeegrams).toFixed(1)} ratio</div> : null }
+
         </div>
       </div>
 
-      <div id="flavor">
+      <div id="row3">
         <input
           type="checkbox"
           id="astringent"
@@ -293,9 +309,9 @@ const submit = () => {
       </div>
 
       <div id="submit">
-        <button id="submit-btn" onClick={() => submit()}>submit</button>
+        <input type="submit" onClick={() => submit()} />
       </div>
-    </div>
+    </form>
   );
 }
 

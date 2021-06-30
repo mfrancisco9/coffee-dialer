@@ -19,6 +19,7 @@
     flex-direction: row;
     justify-content: flex-start;
     border-bottom: 1px solid black;
+    padding-bottom: 3px;
 }
 
 .headers {
@@ -30,3 +31,6 @@
     flex-direction: column;
     width: 25%;
 }
+
+
+/* toggle */
