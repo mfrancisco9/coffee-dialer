@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/coffee-dialer/static/css/main.4c5b8a0d.chunk.css",
-    "main.js": "/coffee-dialer/static/js/main.d03ae7a5.chunk.js",
-    "main.js.map": "/coffee-dialer/static/js/main.d03ae7a5.chunk.js.map",
+    "main.js": "/coffee-dialer/static/js/main.740fb52a.chunk.js",
+    "main.js.map": "/coffee-dialer/static/js/main.740fb52a.chunk.js.map",
     "runtime-main.js": "/coffee-dialer/static/js/runtime-main.ef03c99e.js",
     "runtime-main.js.map": "/coffee-dialer/static/js/runtime-main.ef03c99e.js.map",
     "static/js/2.d8a87815.chunk.js": "/coffee-dialer/static/js/2.d8a87815.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.ef03c99e.js",
     "static/js/2.d8a87815.chunk.js",
     "static/css/main.4c5b8a0d.chunk.css",
-    "static/js/main.d03ae7a5.chunk.js"
+    "static/js/main.740fb52a.chunk.js"
   ]
 }
