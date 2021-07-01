@@ -1,6 +1,6 @@
 # coffee dialer
 
-This is a simple project using React, JS, HTML, and CSS. 
+This is a simple project using React, JS, HTML, and CSS. This project is [deployed live on GitHub pages](https://mfrancisco9.github.io/coffee-dialer/).
 
 ## description
 
