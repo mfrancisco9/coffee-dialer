@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./css/Brew.css";
+import diagnosis from './diagnosis';
 
 function Brew() {
   // info for dropdowns
@@ -39,7 +40,8 @@ function Brew() {
     "Yemen",
     "Zambia",
   ];
-  const methods = ["Kalita", "V60", "Aeropress", "Automatic", "French Press"];
+  const methods = ["Kalita", "Chemex", "V60", "Aeropress", "Automatic", "French Press", "Siphon", "Pour over", "Moka Pot"].sort();
+  const flavors = ["astringent", "muted", "sour", "dry", "harsh", "watery", "fruity", "sweet"].sort();
   //  state for submission & local storage
   const [brewData, setBrewData] = useState({
     roaster: "",
@@ -76,6 +78,7 @@ function Brew() {
           alert("please submit all data")
         } else {
     old.push(brewData);
+    alert((diagnosis(brewData) !== "" ? diagnosis(brewData) : "Thank you and please enjoy your coffee!"));
     localStorage.setItem("brews", JSON.stringify(old)); }
   };
 
@@ -216,13 +219,13 @@ function Brew() {
             />
             <span>grams water</span>
           </div>
-          {brewData.watergrams > 0 && brewData.coffeegrams > 0 ? <div>1:{(brewData.watergrams / brewData.coffeegrams).toFixed(1)} ratio</div> : null }
+          {brewData.watergrams > 0 && brewData.coffeegrams > 0 ? <div>1:{(brewData.watergrams / brewData.coffeegrams).toFixed(1)} ratio</div> : <div> </div> }
 
         </div>
       </div>
 
       <div id="row3">
-        <input
+        {/* <input
           type="checkbox"
           id="astringent"
           name="astringent"
@@ -235,77 +238,25 @@ function Brew() {
             setBrewData({ ...brewData, descriptors: newArray });
           }}
         />
-        <label for="astringent"> astringent</label>
-        <input
-          type="checkbox"
-          id="muted"
-          name="muted"
-          value="muted"
-          onChange={(event) => {
-            let newArray = [...brewData.descriptors, event.target.value];
-            if (brewData.descriptors.includes(event.target.id)) {
-              newArray = newArray.filter((adj) => adj !== event.target.value);
-            }
-            setBrewData({ ...brewData, descriptors: newArray });
-          }}
-        />
-        <label for="astringent"> muted</label>
-        <input
-          type="checkbox"
-          id="sour"
-          name="sour"
-          value="sour"
-          onChange={(event) => {
-            let newArray = [...brewData.descriptors, event.target.value];
-            if (brewData.descriptors.includes(event.target.id)) {
-              newArray = newArray.filter((adj) => adj !== event.target.value);
-            }
-            setBrewData({ ...brewData, descriptors: newArray });
-          }}
-        />
-        <label for="sour"> sour</label>
-        <input
-          type="checkbox"
-          id="dry"
-          name="dry"
-          value="dry"
-          onChange={(event) => {
-            let newArray = [...brewData.descriptors, event.target.value];
-            if (brewData.descriptors.includes(event.target.id)) {
-              newArray = newArray.filter((adj) => adj !== event.target.value);
-            }
-            setBrewData({ ...brewData, descriptors: newArray });
-          }}
-        />
-        <label for="dry"> dry</label>
-        <input
-          type="checkbox"
-          id="harsh"
-          name="harsh"
-          value="harsh"
-          onChange={(event) => {
-            let newArray = [...brewData.descriptors, event.target.value];
-            if (brewData.descriptors.includes(event.target.id)) {
-              newArray = newArray.filter((adj) => adj !== event.target.value);
-            }
-            setBrewData({ ...brewData, descriptors: newArray });
-          }}
-        />
-        <label for="harsh"> harsh</label>
-        <input
-          type="checkbox"
-          id="watery"
-          name="watery"
-          value="watery"
-          onChange={(event) => {
-            let newArray = [...brewData.descriptors, event.target.value];
-            if (brewData.descriptors.includes(event.target.id)) {
-              newArray = newArray.filter((adj) => adj !== event.target.value);
-            }
-            setBrewData({ ...brewData, descriptors: newArray });
-          }}
-        />
-        <label for="watery"> watery</label>
+        <label for="astringent"> astringent</label> */}
+       {flavors.map((flavor) => 
+       <div>
+       <input
+       type="checkbox"
+       id={flavor}
+       name={flavor}
+       value={flavor}
+       onChange={(event) => {
+         let newArray = [...brewData.descriptors, event.target.value];
+         if (brewData.descriptors.includes(event.target.id)) {
+           newArray = newArray.filter((adj) => adj !== event.target.value);
+         }
+         setBrewData({...brewData, descriptors: newArray});
+       }} 
+       />
+       <label for={flavor}>{flavor}</label>
+       </div>
+       )}
       </div>
 
       <div id="submit">

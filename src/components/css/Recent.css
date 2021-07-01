@@ -22,6 +22,10 @@
     padding-bottom: 3px;
 }
 
+#results-box:hover {
+    cursor: pointer
+}
+
 .headers {
     border-bottom: 1px solid black
 }

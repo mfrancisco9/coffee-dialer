@@ -1,9 +1,31 @@
+@keyframes animatedBackground {
+    from { background-position: 0 -50%; }
+    to {background-position: 0% 150% ;}
+}
+
+body::after {
+    content: "";
+    opacity: .75;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    background-image: linear-gradient(45deg, #C9A6A8, #F9FAF0);
+    z-index: -1;
+    min-height: 200vh
+}
+
+
 body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
+    min-height: 100vh;
     font-family: 'Roboto Mono', monospace;
-    background-image: linear-gradient(45deg, #FFFFFF, #F9FAF0);
-}
+    background-image: url("./components/css/beans.png");
+    background-size: 50%;
+    background-repeat: repeat-xy;
+    animation: animatedBackground 45s linear infinite;
+ }
