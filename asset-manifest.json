@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/coffee-dialer/static/css/main.6b47613d.chunk.css",
-    "main.js": "/coffee-dialer/static/js/main.61d79759.chunk.js",
-    "main.js.map": "/coffee-dialer/static/js/main.61d79759.chunk.js.map",
+    "main.js": "/coffee-dialer/static/js/main.15d719bf.chunk.js",
+    "main.js.map": "/coffee-dialer/static/js/main.15d719bf.chunk.js.map",
     "runtime-main.js": "/coffee-dialer/static/js/runtime-main.ef03c99e.js",
     "runtime-main.js.map": "/coffee-dialer/static/js/runtime-main.ef03c99e.js.map",
-    "static/js/2.47fc3a01.chunk.js": "/coffee-dialer/static/js/2.47fc3a01.chunk.js",
-    "static/js/2.47fc3a01.chunk.js.map": "/coffee-dialer/static/js/2.47fc3a01.chunk.js.map",
+    "static/js/2.6b563bf2.chunk.js": "/coffee-dialer/static/js/2.6b563bf2.chunk.js",
+    "static/js/2.6b563bf2.chunk.js.map": "/coffee-dialer/static/js/2.6b563bf2.chunk.js.map",
     "index.html": "/coffee-dialer/index.html",
     "static/css/main.6b47613d.chunk.css.map": "/coffee-dialer/static/css/main.6b47613d.chunk.css.map",
-    "static/js/2.47fc3a01.chunk.js.LICENSE.txt": "/coffee-dialer/static/js/2.47fc3a01.chunk.js.LICENSE.txt"
+    "static/js/2.6b563bf2.chunk.js.LICENSE.txt": "/coffee-dialer/static/js/2.6b563bf2.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.ef03c99e.js",
-    "static/js/2.47fc3a01.chunk.js",
+    "static/js/2.6b563bf2.chunk.js",
     "static/css/main.6b47613d.chunk.css",
-    "static/js/main.61d79759.chunk.js"
+    "static/js/main.15d719bf.chunk.js"
   ]
 }
